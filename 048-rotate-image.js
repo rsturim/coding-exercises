@@ -1,31 +1,14 @@
 var rotate = function (matrix) {
+  console.log('matrix: ', matrix);
 
+  for (let r = 0; r < matrix.length; r++) {
+    const item = matrix[r];
 
-
-
-
-
-    console.log('matrix: ', matrix);
-
-    for (let r = 0; r < matrix.length; r++) {
-        const item = matrix[r];    
-
-        for (let c = r; c < matrix[0].length; c++) {
-            const item = matrix[c][r];    
-            console.log('item: ', item);
-        }
-        
-
-
+    for (let c = r; c < matrix[0].length; c++) {
+      const item = matrix[c][r];
+      console.log('item: ', item);
     }
-    
-
-
-    
-
-
-
-
+  }
 };
 
 const matrix = [
