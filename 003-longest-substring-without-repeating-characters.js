@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number}
  */
-
+``
 var lengthOfLongestSubstring = function (s) {
   let set = new Set();
   let left = 0;
@@ -12,7 +12,7 @@ var lengthOfLongestSubstring = function (s) {
   while (right < s.length) {
     let rChar = s.charAt(right);
     let lChar = s.charAt(left);
-
+    
     if (!set.has(rChar)) {
       set.add(rChar);
       maxCount = Math.max(maxCount, set.size);

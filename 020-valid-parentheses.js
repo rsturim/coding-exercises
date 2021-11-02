@@ -3,33 +3,6 @@
  * @return {boolean}
  */
 
-// var isValid = function(s) {
-//     if (!s) {
-//         return false;
-//     }
-//     const pairs = {
-//         "(": ")",
-//         "[": "]",
-//         "{": "}"
-//     };
-
-//     const charArray = s.split("");
-//     const stack = [];
-
-//     for (let i = 0; i < (charArray.length); i++) {
-//         let br = charArray[i];
-//         if (pairs[br]) {
-//             stack.push(pairs[br]);
-//         } else {
-//             let popped = stack.pop();
-//             if (popped !== br) {
-//                 return false;
-//             }
-//         }
-//     }x
-//     return stack.length === 0;
-// };
-
 var isValid = function (s) {
   const stack = [];
   const pairs = '() {} []';

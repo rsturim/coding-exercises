@@ -8,10 +8,10 @@ var subsetsWithDup = (nums) => {
 
   nums.sort((a, b) => a - b);
 
-  // dfs
   const dfs = (i, nums, slate) => {
+    // base case (i has to be out of range [leaf level])
     if (i === nums.length) {
-      result.push(slate.slice());
+      result.push([...slate]);
       return;
     }
 

@@ -3,36 +3,25 @@
  * @return {number}
  */
 
-function dFS(vertex, adjList, visited) {
+function dFS(vertex, adjList, visited) {}
 
-}
-
-function buildAdjList(isConnected) {
-
-}
+function buildAdjList(isConnected) {}
 
 var findCircleNum = function (isConnected) {
+  const adjList = buildAdjList(isConnected);
+  const visited = {};
+  const numProvices = 0;
 
-    const adjList = buildAdjList(isConnected);
-    const visited = {};
-    const numProvices = 0;
+  for (let vertex = 0; vertex < adjList.length; i++) {
+    const item = adjList[vertex];
 
-
-    for (let vertex = 0; vertex < adjList.length; i++) {
-        const item = adjList[vertex];    
-
-        if (!visited[vertex]) {
-
-            numProvices++;
-            dFS(vertex, adjList, visited)
-        }
-
-
+    if (!visited[vertex]) {
+      numProvices++;
+      dFS(vertex, adjList, visited);
     }
-    
+  }
 
-
-    return numProvices;
+  return numProvices;
 };
 
 let isConnected = [

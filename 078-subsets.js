@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var subsets = function (nums) {
-  console.log('nums: ', nums);
+  // global result
   const result = [];
 
   const dfs = (i, nums, slate) => {

@@ -3,10 +3,11 @@
  * @return {number[][]}
  */
 var permuteUnique = function (nums) {
+  // global result
   const result = [];
 
   const dfs = (i, nums) => {
-    // base case
+    // base case (i has to be out of range [leaf level])
     if (i === nums.length) {
       result.push([...nums]);
       return;
