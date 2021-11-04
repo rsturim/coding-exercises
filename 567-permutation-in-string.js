@@ -7,6 +7,10 @@ var checkInclusion = function (s1, s2) {
   const arr = s1.split('');
   const combos = permute(arr);
 
+  console.log('combos: ', combos);
+
+
+
   for (let i = 0; i < combos.length; i++) {
     const item = combos[i];
     let cStr = item.join('');
@@ -38,14 +42,20 @@ var permute = function (letter) {
   return result;
 };
 
-// const s1 = 'oab',
-  // s2 = 'eidbaooo';
+// const s1 = 'oab';
+// const s2 = 'eidbaooo';
 // Output: true
 
-// const s1 = "ab", s2 = "eidboaoo"
+// const s1 = 'ab';
+// const s2 = 'eidboaoo';
 // Output: false
 
-const s1 = "epo", s2 = "properties";
+// const s1 = 'epo';
+// const s2 = 'properties';
+
+
+const s1 = 'prosperity';
+const s2 = 'properties';
 
 
 
