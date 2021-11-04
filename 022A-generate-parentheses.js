@@ -1,51 +1,42 @@
-const isValid = (str) => {
-  const stack = [];
-  let i = 0;
-  let len = str.length;
-  while (i < len) {
-    let currParen = str[i];
-    stack.push(currParen);
-
-    let open = stack[stack.length - 2];
-    let closed = stack[stack.length - 1];
-
-    if (open + closed === '()') {
-      stack.pop();
-      stack.pop();
-    }
-    i++;
-  }
-  return stack.length === 0;
-};
-
 const generateParens = (n) => {
   // GLOBAL result
   const result = [];
 
-  const dfs = (i, n, slate) => {
+  const dfs = (i, n, slate, openCount, closedCount) => {
+    // BACKTRACKING CASE (NEW)
+    if (openCount > n) {
+      return; // short circuit
+    }
+    if (closedCount > openCount) {
+      return; // short circuit
+    }
+
     if (i === n * 2) {
-      // if were at the leaf level and it's valid, add to result
-      if (isValid(slate.join(''))) {
-        result.push(slate.join(''));
-      }
+      // if at the leaf level and it's valid, add to result
+      result.push(slate.join(''));
       return;
     }
     // dfs recursive call
     // add open paren to slate
+
     slate.push('(');
-    dfs(i + 1, n, slate);
+    dfs(i + 1, n, slate, openCount + 1, closedCount);
     slate.pop();
 
     // add closed paren to slate
     slate.push(')');
-    dfs(i + 1, n, slate);
+
+    dfs(i + 1, n, slate, openCount, closedCount + 1);
     slate.pop();
   };
-
-  dfs(0, n, []);
+  dfs(0, n, [], 0, 0);
 
   return result;
 };
 
-const result = generateParens(3);
+const result = generateParens(1);
 console.log('result: ', result);
+
+// 1 --> result:  ['()']
+// 2 --> result:  [ '(())', '()()' ]
+// 3 --> result:  [ '((()))', '(()())', '(())()', '()(())', '()()()' ]

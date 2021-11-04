@@ -6,6 +6,7 @@ var subsetsWithDup = (nums) => {
   // global result
   const result = [];
 
+  // sort
   nums.sort((a, b) => a - b);
 
   const dfs = (i, nums, slate) => {
@@ -29,7 +30,6 @@ var subsetsWithDup = (nums) => {
 
   // dedup with hash
   const hash = {};
-
   for (let i = 0; i < result.length; i++) {
     const item = result[i];
     if (hash[item]) continue;
