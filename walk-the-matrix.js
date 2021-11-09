@@ -24,7 +24,7 @@ const walkMatrix = (matrix) => {
     // Increment our start row since we visited each value
     startRow++;
 
-    // Walk top-bottom for the end column
+    // Walk top-to-bottom for the end column
     for (let row = startRow; row <= endRow; row++) {
       result.push(matrix[row][endColumn]);
     }
@@ -32,7 +32,7 @@ const walkMatrix = (matrix) => {
 
     // Since we increment startRow, we need to make sure we are still in bounds
     if (endRow >= startRow) {
-      //  Walk left-right on the bottom row
+      //  Walk left-to-right on the bottom row
       for (let column = endColumn; column >= startColumn; column--) {
         result.push(matrix[endRow][column]);
       }
@@ -41,7 +41,7 @@ const walkMatrix = (matrix) => {
 
     // Since we increment startRow, we need to make sure we are still in bounds
     if (endColumn >= startColumn) {
-      // walk bottom-top for the start column
+      // walk bottom-to-top for the start column
       for (let row = endRow; row >= startRow; row--) {
         result.push(matrix[row][startColumn]);
       }
@@ -51,6 +51,7 @@ const walkMatrix = (matrix) => {
 
   return result;
 };
+
 // Input
 const matrix = [
   [0, 1, 2, 3],
@@ -58,15 +59,14 @@ const matrix = [
   [10, 15, 14, 5],
   [9, 8, 7, 6],
 ];
+// result: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 // const matrix = [
 //   [0, 1],
 //   [5, 2],
 //   [4, 3],
 // ];
-
-// Output: walkMatrix(matrix)
-//   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+// result:  [ 0, 1, 2, 3, 4, 5 ]
 
 const result = walkMatrix(matrix);
 console.log('result: ', result);
