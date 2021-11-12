@@ -3,32 +3,31 @@
  * @return {number[]}
  */
 const productExceptSelf = (nums) => {
-  const solution = [];
+  const len = nums.length;
+  const result = new Array(len).fill(1);
+  let leftProduct = 1;
+  for (let i = 1; i < len; i++) {
+    const endIndex = len - 1 - i;
+    const rightIndex = endIndex + 1;
+    const rightVal = result[rightIndex];
+    const inputVal = nums[rightIndex];
 
-  const multiplier = (arr) => {
-    console.log('arr: ', arr);
-    return arr.reduce((item, acc) => {
-      return item === 0 ? 0 : acc * item;
-    }, 1);
-  };
-
-  let counter = 0;
-
-  for (let index = 0; index < nums.length; index++) {
-    const miniArr = nums.filter((item, idx) => {
-      if (idx !== index) {
-        return nums[index];
-      }
-    });
-    const sum = multiplier(miniArr);
-    solution.push(sum);
+    result[endIndex] = rightVal * inputVal;
+    const item = nums[i];
   }
 
-  return solution;
+  for (let i = 0; i < len; i++) {
+    const item = nums;
+    const productExceptSelf = leftProduct * result[i];
+    result[i] = productExceptSelf;
+    leftProduct = leftProduct * nums[i];
+  }
+
+  return result;
 };
 
-// let nums = [1,2,3,4];
-let nums = [-1, 1, 0, -3, 3];
+let nums = [1, 2, 3, 4];
+// let nums = [-1, 1, 0, -3, 3];
 const result = productExceptSelf(nums);
 
 console.log('result: ', result);
