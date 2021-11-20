@@ -7,15 +7,17 @@
 var findMaxAverage = function (nums, k) {
   let start = 0;
   let end = 0;
-  let sofar = 0;
+  let sum = 0;
   let max = -Infinity;
 
   while (end < nums.length) {
-    sofar += nums[end];
-    if (end - start === k - 1) {
-      let ave = sofar / k;
+    let span = end - start + 1;
+    sum += nums[end];
+
+    if (k === span) {
+      let ave = sum / k;
       max = Math.max(max, ave);
-      sofar -= nums[start];
+      sum -= nums[start]; // deduct trailing input, since we're advancing forward
       start++;
     }
     end++;

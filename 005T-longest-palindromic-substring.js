@@ -1,7 +1,3 @@
-/**
- * @param {string} s
- * @return {string}
- */
 var longestPalindrome = function (s) {
   let result = '';
 
@@ -10,18 +6,19 @@ var longestPalindrome = function (s) {
   for (let i = 0; i < s.length; i++) {
     for (let j = 0; j < 2; j++) {
       let left = i;
-      let right = j + i;
+      let right = i + j;
 
-      // open window wider and wider as long as letters are equal
       while (left >= 0 && right < s.length && s[left] === s[right]) {
         left--;
         right++;
       }
+
       let start = left + 1;
       let end = right;
 
       let substring = s.slice(start, end);
-      if (result.length < substring.length) {
+
+      if (substring.length > result.length) {
         result = substring;
       }
     }
