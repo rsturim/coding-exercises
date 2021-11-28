@@ -2,26 +2,31 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+
 var sortedSquares = function (nums) {
-  // cheap way
-  // return nums.map(n => n ** 2).sort((a,b) => a - b);
-
+  console.log('nums: ', nums);
   const result = new Array(nums.length).fill('_');
-  let i = 0;
-  let j = nums.length - 1;
-  let rIdx = nums.length - 1;
-  while (i <= j) {
-    let left = nums[i] ** 2;
-    let right = nums[j] ** 2;
 
-    if (right >= left) {
-      result[rIdx] = right;
-      j--;
+  let l = 0;
+  let r = nums.length - 1;
+
+  let idx = nums.length - 1;
+
+  while (l <= r) {
+    let left = nums[l] ** 2;
+    console.log('left: ', left);
+    let right = nums[r] ** 2;
+    console.log('right: ', right);
+
+    if (left > right) {
+      result[idx] = left;
+      l++;
     } else {
-      result[rIdx] = left;
-      i++;
+      result[idx] = right;
+      r--;
     }
-    rIdx--;
+    idx--;
+    console.log('------------------------------------------');
   }
 
   return result;

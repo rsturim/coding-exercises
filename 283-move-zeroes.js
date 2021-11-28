@@ -5,15 +5,18 @@
 
 var moveZeroes = function (nums) {
   let anchor = 0;
+  let explorer = 1;
 
-  for (let explorer = 0; explorer < nums.length; explorer++) {
-    if (nums[explorer] !== 0) {
-      [nums[explorer], nums[anchor]] = [nums[anchor], nums[explorer]];
+  while (explorer < nums.length) {
+    if (nums[anchor] !== nums[explorer]) {
+      nums[anchor + 1] = nums[explorer];
       anchor++;
     }
+    explorer++;
   }
 
-  return nums;
+  console.log('nums: ', nums);
+  return anchor + 1;
 };
 
 const nums = [0, 1, 0, 3, 12];
