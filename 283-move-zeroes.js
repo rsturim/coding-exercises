@@ -4,19 +4,21 @@
  */
 
 var moveZeroes = function (nums) {
-  let anchor = 0;
-  let explorer = 1;
+  let l = 0;
+  let r = 0;
 
-  while (explorer < nums.length) {
-    if (nums[anchor] !== nums[explorer]) {
-      nums[anchor + 1] = nums[explorer];
-      anchor++;
+  while (r < nums.length) {
+    const rNum = nums[r];
+
+    if (rNum === 0) {
+      r++;
+    } else {
+      [nums[l], nums[r]] = [nums[r], nums[l]];
+      l++;
+      r++;
     }
-    explorer++;
   }
-
-  console.log('nums: ', nums);
-  return anchor + 1;
+  return nums
 };
 
 const nums = [0, 1, 0, 3, 12];
