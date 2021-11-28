@@ -12,8 +12,8 @@ var removeDuplicates = function (nums) {
     if (nums[anchor] === nums[explorer]) {
       explorer++;
     } else {
-      nums[anchor + 1] = nums[explorer];
       anchor++;
+      nums[anchor] = nums[explorer];
     }
   }
   return anchor + 1;
