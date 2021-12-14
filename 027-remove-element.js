@@ -31,15 +31,23 @@
 // };
 
 var removeElement = function (nums, val) {
-  let i = 0;
-  for (let j = 0; j < nums.length; j++) {
-    if (nums[j] !== val) {
-      [nums[i], nums[j]] = [nums[j], nums[i]];
-      i++;
+  let l = 0;
+  let r = 0;
+
+  while (r < nums.length) {
+    const item = nums[r];
+    console.log('item: ', item);
+
+    if (item === val) {
+      r++;
+    } else {
+      [nums[l], nums[r]] = [nums[r], nums[l]];
+      l++;
+      r++;
     }
   }
-  console.log('nums: ', nums);
-  return i;
+
+  return l;
 };
 
 const nums = [3, 2, 2, 3];

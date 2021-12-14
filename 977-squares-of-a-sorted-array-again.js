@@ -8,18 +8,17 @@ var sortedSquares = function (nums) {
 
   let l = 0;
   let r = nums.length - 1;
-
   let idx = nums.length - 1;
 
   while (l <= r) {
-    let left = nums[l] ** 2;
-    let right = nums[r] ** 2;
+    let lVal = nums[l] * nums[l];
+    let rVal = nums[r] * nums[r];
 
-    if (left > right) {
-      result[idx] = left;
+    if (lVal > rVal) {
+      result[idx] = lVal;
       l++;
     } else {
-      result[idx] = right;
+      result[idx] = rVal;
       r--;
     }
     idx--;

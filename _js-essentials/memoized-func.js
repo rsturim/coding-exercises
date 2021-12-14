@@ -2,10 +2,12 @@ function memoizedAddTo256() {
   var cache = {};
 
   return function (num) {
+    console.log('------------------------------------------');
     if (num in cache) {
-      console.log('from cache!');
+      console.log(`${num} from cache!`);
       return cache[num];
     } else {
+      console.log(`${num} calculating now!`);
       cache[num] = num + 256;
       return cache[num];
     }
@@ -13,10 +15,5 @@ function memoizedAddTo256() {
 }
 
 var memoizedFunc = memoizedAddTo256();
-
-console.log('memoizedFunc(20): ', memoizedFunc(20)); // Normal return
-console.log('------------------------------------------');
-console.log('memoizedFunc(20): ', memoizedFunc(20)); // Cached return
-
-//   memoizedFunc(10)
-//   memoizedFunc(10)
+console.log('Call 1: memoizedFunc(20): ', memoizedFunc(20)); // Normal return
+console.log('Call 2: memoizedFunc(20): ', memoizedFunc(20)); // Cached return
