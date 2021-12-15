@@ -46,6 +46,7 @@ var longestPalindrome = function (s) {
 
 // const s = "ac"
 // Output: "a"
+// yup 
 
 const s = 'XracecarZ';
 
